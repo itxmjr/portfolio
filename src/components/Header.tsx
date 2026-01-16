@@ -15,7 +15,7 @@ export default function Header() {
 
     // Typing Effect
     useEffect(() => {
-        const roles = ['AI Solutions Architect', 'Full-Stack AI Engineer', 'Founder · AI by MJR', 'Product Strategy Lead'];
+        const roles = ['AI Engineer & Founder', 'Full-Stack AI Developer', 'GenAI Strategist', 'LLM Solutions Architect'];
         const handleType = () => {
             const i = loopNum % roles.length;
             const fullText = roles[i];

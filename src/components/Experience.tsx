@@ -67,17 +67,17 @@ export default function Experience() {
                     <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[0.85rem] text-[#96a2b6] tracking-wide uppercase">
                         Experience
                     </p>
-                    <h2 className="text-4xl font-semibold mt-4">2+ years of engineering intelligent solutions.</h2>
+                    <h2 className="text-4xl font-semibold mt-4">2 Years of engineering intelligent solutions.</h2>
                     <p className="text-white/70 mt-4">
-                        Proven track record in deploying enterprise AI copilots, optimizing retrieval systems, and establishing rigorous AI evaluation frameworks for production environments.
+                        Proven track record in building LLM systems, Generative AI models, and RAG pipelines. Specialized in bridging the gap between sophisticated AI models and user-centric, production-ready applications.
                     </p>
                 </div>
 
                 {/* Hero Stats */}
                 <div className="grid sm:grid-cols-3 gap-4">
-                    <StatCard target={18} label="Solutions Delivered" />
-                    <StatCard target={150} label="Deployments" />
-                    <StatCard target={8} label="Business Verticals" />
+                    <StatCard target={10} label="Solutions Shipped" />
+                    <StatCard target={5} label="Featured Demos" />
+                    <StatCard target={3} label="AI Internships" />
                 </div>
 
                 {/* Timeline */}
@@ -87,19 +87,19 @@ export default function Experience() {
                             <div className="mt-2 w-2.5 h-2.5 bg-[#00FF7F] rounded-full shadow-[0_0_10px_rgba(0,255,127,0.5)] shrink-0 ml-[4px]"></div>
                             <div>
                                 <p className="text-sm text-white/40">2024 · Present</p>
-                                <h3 className="text-xl font-semibold">Founder & Lead AI Engineer · AI by MJR</h3>
+                                <h3 className="text-xl font-semibold">AI Engineer & Founder · AI by MJR</h3>
                                 <p className="text-white/70 text-sm">
-                                    Architecting custom AI automation and autonomous research platforms for biotechnology, finance, and enterprise clients.
+                                    Building LLM systems, RAG pipelines, and agentic workflows. Focused on transformer architectures and generative NLP research prototypes.
                                 </p>
                             </div>
                         </div>
                         <div className="flex gap-4 relative z-10">
                             <div className="mt-2 w-2.5 h-2.5 bg-[#00FF7F] rounded-full shadow-[0_0_10px_rgba(0,255,127,0.5)] shrink-0 ml-[4px]"></div>
                             <div>
-                                <p className="text-sm text-white/40">2022 · 2023</p>
-                                <h3 className="text-xl font-semibold">Lead GenAI Strategist · Venture Studio</h3>
+                                <p className="text-sm text-white/40">2025 · Present</p>
+                                <h3 className="text-xl font-semibold">AI Intern · CodeAlpha & DevelopersHub</h3>
                                 <p className="text-white/70 text-sm">
-                                    Successfully launched 12+ AI-driven products, implemented enterprise-grade LLMOps pipelines, and scaled evaluation frameworks to support high-traffic applications.
+                                    Developing real-time object detection, language translators, and LLM-based automation workflows. Working on embeddings pipelines and vector search optimization.
                                 </p>
                             </div>
                         </div>

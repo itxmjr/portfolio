@@ -76,20 +76,20 @@ const chartOptions = {
 
 const skillPanels = {
     genai: {
-        label: 'AI Architecture',
-        skills: ['GPT-4 Turbo', 'Claude 3 Opus', 'Gemini 1.5 Pro', 'LLaMA 3', 'Fine-tuning', 'Prompt Engineering', 'Eval Harnesses', 'Multi-modal']
+        label: 'Core AI',
+        skills: ['Transformers', 'LLMs', 'RAG', 'LangChain', 'LangGraph', 'Attention Mechanisms', 'Vector DBs', 'Prompt Engineering']
     },
-    rag: {
-        label: 'Retrieval (RAG)',
-        skills: ['Pinecone', 'Weaviate', 'Milvus', 'Hybrid search', 'Chunking', 'Retriever', 'Re-ranking', 'Knowledge graphs']
+    deeplearning: {
+        label: 'Deep Learning',
+        skills: ['PyTorch', 'CNNs', 'RNNs', 'Training Loops', 'Autograd Systems', 'LSTMs', 'Computer Vision', 'NLP Pipelines']
     },
-    agents: {
-        label: 'AI Automation',
-        skills: ['LangChain', 'CrewAI', 'Function calling', 'Toolformer', 'Planning', 'Human-in-loop', 'Voice agents', 'Metrics']
+    tools: {
+        label: 'Tools & Platforms',
+        skills: ['Docker', 'Git', 'Linux', 'FastAPI', 'Next.js', 'Hugging Face', 'Vercel', 'Ollama']
     },
-    mlops: {
-        label: 'Eng & Ops',
-        skills: ['W&B', 'MLflow', 'Arize AI', 'Feature stores', 'Kubernetes', 'Data contracts', 'Monitoring', 'Security']
+    languages: {
+        label: 'Languages',
+        skills: ['Python', 'C++', 'SQL', 'TypeScript', 'JavaScript', 'HTML/CSS']
     }
 };
 

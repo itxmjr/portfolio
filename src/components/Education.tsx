@@ -12,16 +12,10 @@ export default function Education() {
                 </div>
                 <div className="grid gap-6 relative">
                     <div className="glass-panel p-6 border border-white/10 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl hover:border-[#00FF7F]/30 transition-colors duration-300 relative group">
-                        <span className="inline-block px-3 py-1 rounded-full bg-white/5 text-xs text-white/50 mb-4">2013 — 2015</span>
-                        <h3 className="text-xl font-bold text-white mb-1">M.S. Computer Science</h3>
-                        <p className="text-[#00FF7F] font-medium mb-3">Stanford University</p>
-                        <p className="text-white/60 text-xs leading-relaxed">Specialized in Artificial Intelligence and Human-Computer Interaction. Summa Cum Laude.</p>
-                    </div>
-                    <div className="glass-panel p-6 border border-white/10 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl hover:border-[#00FF7F]/30 transition-colors duration-300 relative group">
-                        <span className="inline-block px-3 py-1 rounded-full bg-white/5 text-xs text-white/50 mb-4">2009 — 2013</span>
-                        <h3 className="text-xl font-bold text-white mb-1">B.S. Mathematics & CS</h3>
-                        <p className="text-[#00FF7F] font-medium mb-3">MIT</p>
-                        <p className="text-white/60 text-xs leading-relaxed">Double major. Dean&apos;s List all semesters.</p>
+                        <span className="inline-block px-3 py-1 rounded-full bg-white/5 text-xs text-white/50 mb-4">2023 — 2027</span>
+                        <h3 className="text-xl font-bold text-white mb-1">BS Computer Science</h3>
+                        <p className="text-[#00FF7F] font-medium mb-3">University of Central Punjab</p>
+                        <p className="text-white/60 text-xs leading-relaxed">Focusing on Artificial Intelligence and Machine Learning. Current CGPA: 3.77 / 4.0.</p>
                     </div>
                 </div>
             </div>
