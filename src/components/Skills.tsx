@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
     Chart as ChartJS,
     RadialLinearScale,
@@ -24,72 +24,63 @@ ChartJS.register(
 
 const neon = '#00FF7F';
 
-const skillData = {
-    labels: ['AI Architecture', 'Retrieval (RAG)', 'AI Automation', 'Deep Learning', 'Eng & Ops'],
-    datasets: [{
-        label: 'Proficiency',
-        data: [98, 92, 95, 85, 88],
-        backgroundColor: `${neon}33`,
-        borderColor: neon,
-        pointBackgroundColor: '#000',
-        pointBorderColor: neon,
-        pointHoverBackgroundColor: neon,
-        pointHoverBorderColor: '#fff',
-        borderWidth: 2,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-    }]
-};
-
-const chartOptions = {
-    responsive: true,
-    scales: {
-        r: {
-            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
-            grid: { color: 'rgba(255, 255, 255, 0.1)' },
-            pointLabels: {
-                color: 'rgba(255, 255, 255, 0.7)',
-                font: { family: 'Inter', size: 10, weight: '500' }
-            },
-            ticks: { display: false, max: 100 }
-        }
-    },
-    plugins: {
-        legend: { display: false },
-        tooltip: {
-            backgroundColor: 'rgba(0, 0, 0, 0.9)',
-            titleColor: neon,
-            bodyColor: '#fff',
-            bodyFont: { family: 'Inter' },
-            padding: 12,
-            borderColor: 'rgba(255, 255, 255, 0.1)',
-            borderWidth: 1,
-            displayColors: false,
-            callbacks: {
-                label: function (context: any) {
-                    return `${context.raw}% Proficiency`;
-                }
-            }
-        }
-    }
-};
+const radarLabels = ['AI Architecture', 'Retrieval (RAG)', 'AI Automation', 'Deep Learning', 'Eng & Ops'];
+const radarValues = [98, 92, 95, 85, 88];
 
 const skillPanels = {
     genai: {
         label: 'Core AI',
-        skills: ['Transformers', 'LLMs', 'RAG', 'LangChain', 'LangGraph', 'Attention Mechanisms', 'Vector DBs', 'Prompt Engineering']
+        radarIndex: 0, // AI Architecture
+        skills: [
+            { name: 'Transformers', level: 95 },
+            { name: 'LLMs', level: 92 },
+            { name: 'RAG', level: 90 },
+            { name: 'LangChain', level: 88 },
+            { name: 'LangGraph', level: 85 },
+            { name: 'Attention Mechanisms', level: 90 },
+            { name: 'Vector DBs', level: 87 },
+            { name: 'Prompt Engineering', level: 93 },
+        ]
     },
     deeplearning: {
         label: 'Deep Learning',
-        skills: ['PyTorch', 'CNNs', 'RNNs', 'Training Loops', 'Autograd Systems', 'LSTMs', 'Computer Vision', 'NLP Pipelines']
+        radarIndex: 3, // Deep Learning
+        skills: [
+            { name: 'PyTorch', level: 92 },
+            { name: 'CNNs', level: 88 },
+            { name: 'RNNs', level: 85 },
+            { name: 'Training Loops', level: 90 },
+            { name: 'Autograd Systems', level: 82 },
+            { name: 'LSTMs', level: 86 },
+            { name: 'Computer Vision', level: 84 },
+            { name: 'NLP Pipelines', level: 91 },
+        ]
     },
     tools: {
         label: 'Tools & Platforms',
-        skills: ['Docker', 'Git', 'Linux', 'FastAPI', 'Next.js', 'Hugging Face', 'Vercel', 'Ollama']
+        radarIndex: 4, // Eng & Ops
+        skills: [
+            { name: 'Docker', level: 85 },
+            { name: 'Git', level: 95 },
+            { name: 'Linux', level: 88 },
+            { name: 'FastAPI', level: 92 },
+            { name: 'Next.js', level: 90 },
+            { name: 'Hugging Face', level: 87 },
+            { name: 'Vercel', level: 85 },
+            { name: 'Ollama', level: 80 },
+        ]
     },
     languages: {
         label: 'Languages',
-        skills: ['Python', 'C++', 'SQL', 'TypeScript', 'JavaScript', 'HTML/CSS']
+        radarIndex: 2, // AI Automation
+        skills: [
+            { name: 'Python', level: 96 },
+            { name: 'C++', level: 78 },
+            { name: 'SQL', level: 82 },
+            { name: 'TypeScript', level: 88 },
+            { name: 'JavaScript', level: 90 },
+            { name: 'HTML/CSS', level: 92 },
+        ]
     }
 };
 
@@ -97,55 +88,122 @@ type SkillKey = keyof typeof skillPanels;
 
 export default function Skills() {
     const [activeTab, setActiveTab] = useState<SkillKey>('genai');
+    const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
     const chartRef = React.useRef<any>(null);
 
-    // Effect to update chart focus when activeTab changes
-    React.useEffect(() => {
+    // Highlight radar point when tab changes or skill is clicked
+    const highlightRadar = useCallback((index: number) => {
         const chart = chartRef.current;
         if (!chart) return;
 
-        const targetMap: Record<string, number> = { 'genai': 0, 'rag': 1, 'agents': 2, 'mlops': 4 };
-        const index = targetMap[activeTab];
-
-        if (index !== undefined) {
-            chart.setActiveElements([
-                {
-                    datasetIndex: 0,
-                    index: index,
-                }
-            ]);
-            chart.tooltip.setActiveElements([
-                {
-                    datasetIndex: 0,
-                    index: index,
-                }
-            ]);
-        } else {
-            chart.setActiveElements([]);
-            chart.tooltip.setActiveElements([]);
-        }
-
+        chart.setActiveElements([{ datasetIndex: 0, index }]);
+        chart.tooltip.setActiveElements([{ datasetIndex: 0, index }]);
         chart.update();
-    }, [activeTab]);
+    }, []);
+
+    // Update radar when tab changes
+    React.useEffect(() => {
+        const panel = skillPanels[activeTab];
+        highlightRadar(panel.radarIndex);
+    }, [activeTab, highlightRadar]);
+
+    const handleSkillClick = (skillName: string) => {
+        // Map skill names to radar indices
+        const skillToRadar: Record<string, number> = {
+            // Core AI skills → AI Architecture (0) or Retrieval (1)
+            'Transformers': 0, 'LLMs': 0, 'Attention Mechanisms': 0,
+            'RAG': 1, 'Vector DBs': 1, 'LangChain': 1, 'LangGraph': 1,
+            'Prompt Engineering': 0,
+            // Deep Learning → Deep Learning (3)
+            'PyTorch': 3, 'CNNs': 3, 'RNNs': 3, 'Training Loops': 3,
+            'Autograd Systems': 3, 'LSTMs': 3, 'Computer Vision': 3, 'NLP Pipelines': 3,
+            // Tools → Eng & Ops (4)
+            'Docker': 4, 'Git': 4, 'Linux': 4, 'FastAPI': 4,
+            'Next.js': 4, 'Hugging Face': 4, 'Vercel': 4, 'Ollama': 4,
+            // Languages → AI Automation (2)
+            'Python': 2, 'C++': 2, 'SQL': 2, 'TypeScript': 2,
+            'JavaScript': 2, 'HTML/CSS': 2,
+        };
+
+        const radarIdx = skillToRadar[skillName];
+        if (radarIdx !== undefined) {
+            highlightRadar(radarIdx);
+        }
+    };
+
+    const skillData = {
+        labels: radarLabels,
+        datasets: [{
+            label: 'Proficiency',
+            data: radarValues,
+            backgroundColor: `${neon}20`,
+            borderColor: neon,
+            pointBackgroundColor: '#000',
+            pointBorderColor: neon,
+            pointHoverBackgroundColor: neon,
+            pointHoverBorderColor: '#fff',
+            borderWidth: 2,
+            pointRadius: 5,
+            pointHoverRadius: 8,
+        }]
+    };
+
+    const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+            r: {
+                angleLines: { color: 'rgba(255, 255, 255, 0.06)' },
+                grid: { color: 'rgba(255, 255, 255, 0.06)' },
+                pointLabels: {
+                    color: 'rgba(255, 255, 255, 0.6)',
+                    font: { family: 'Inter', size: 10, weight: '600' as const }
+                },
+                ticks: { display: false },
+                suggestedMin: 0,
+                suggestedMax: 100,
+            }
+        },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                titleColor: neon,
+                bodyColor: '#fff',
+                bodyFont: { family: 'Inter' },
+                padding: 12,
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+                borderWidth: 1,
+                displayColors: false,
+                callbacks: {
+                    label: function (context: any) {
+                        return `${context.raw}% Proficiency`;
+                    }
+                }
+            }
+        }
+    };
 
     return (
-        <section id="skills" className="py-12 px-4 sm:px-6 scroll-mt-24" data-animate>
+        <section id="skills" className="py-16 px-4 sm:px-6 scroll-mt-24" data-animate>
             <div className="space-y-8 reveal transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                <div className="flex flex-col gap-3">
-                    <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[0.8rem] text-[#96a2b6] tracking-wide uppercase">
-                        Skills
-                    </p>
-                    <h2 className="text-3xl font-semibold">Specialized Toolkit</h2>
+                {/* Section Header - single clean heading, no redundant text */}
+                <div>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Skills & Expertise</h2>
+                    <p className="text-white/50 text-sm sm:text-base max-w-xl">Click any skill to see its corresponding domain proficiency on the radar chart.</p>
                 </div>
 
+                {/* Category Tabs */}
                 <div className="flex flex-wrap gap-2">
                     {Object.entries(skillPanels).map(([key, panel]) => (
                         <button
                             key={key}
                             onClick={() => setActiveTab(key as SkillKey)}
                             className={clsx(
-                                "px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/70 text-xs font-medium transition-all duration-300 hover:bg-white/10",
-                                activeTab === key && "!bg-[#00FF7F] !text-black !border-[#00FF7F]" // Added !important via Tailwind to override generic clashes if any
+                                "px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 border",
+                                activeTab === key
+                                    ? "bg-[#00FF7F] text-black border-[#00FF7F] shadow-[0_0_20px_rgba(0,255,127,0.15)]"
+                                    : "bg-white/[0.03] border-white/[0.06] text-white/50 hover:text-white/80 hover:bg-white/[0.06] hover:border-white/10"
                             )}
                         >
                             {panel.label}
@@ -153,22 +211,49 @@ export default function Skills() {
                     ))}
                 </div>
 
-                <div className="glass-panel p-6 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl hover:border-[#00FF7F]/30 transition-colors duration-300">
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-1 animate-fadeSlide">
+                {/* Skills Content */}
+                <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 sm:p-6">
+                    <div className="grid md:grid-cols-2 gap-6 items-start">
+                        {/* Skills Grid - Interactive */}
+                        <div className="space-y-2">
                             {skillPanels[activeTab].skills.map((skill) => (
-                                <span
-                                    key={skill}
-                                    className="text-xs text-white/50 hover:text-[#00FF7F] transition-colors cursor-default"
+                                <button
+                                    key={skill.name}
+                                    onClick={() => handleSkillClick(skill.name)}
+                                    onMouseEnter={() => setHoveredSkill(skill.name)}
+                                    onMouseLeave={() => setHoveredSkill(null)}
+                                    className={clsx(
+                                        "w-full text-left p-3 rounded-xl border transition-all duration-300 group flex items-center justify-between",
+                                        hoveredSkill === skill.name
+                                            ? "bg-[#00FF7F]/[0.06] border-[#00FF7F]/20"
+                                            : "bg-white/[0.01] border-white/[0.04] hover:bg-white/[0.04] hover:border-white/10"
+                                    )}
                                 >
-                                    {skill}
-                                </span>
+                                    <span className={clsx(
+                                        "text-sm font-medium transition-colors duration-300",
+                                        hoveredSkill === skill.name ? "text-[#00FF7F]" : "text-white/60 group-hover:text-white/80"
+                                    )}>
+                                        {skill.name}
+                                    </span>
+                                    <div className="flex items-center gap-3">
+                                        {/* Progress bar */}
+                                        <div className="w-16 sm:w-24 h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                                            <div
+                                                className="h-full rounded-full bg-gradient-to-r from-[#00FF7F]/60 to-[#00FF7F] transition-all duration-500"
+                                                style={{ width: `${skill.level}%` }}
+                                            />
+                                        </div>
+                                        <span className="text-[10px] text-white/30 font-mono w-7 text-right">
+                                            {skill.level}
+                                        </span>
+                                    </div>
+                                </button>
                             ))}
                         </div>
 
-                        {/* Radar Chart Canvas */}
-                        <div className="hidden md:flex items-center justify-center p-2">
-                            <div className="w-full max-w-[320px]">
+                        {/* Radar Chart */}
+                        <div className="hidden md:flex items-center justify-center">
+                            <div className="w-full max-w-[300px]">
                                 <Radar
                                     ref={chartRef}
                                     data={skillData}

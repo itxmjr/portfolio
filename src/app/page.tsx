@@ -9,7 +9,7 @@ import Contact from '@/components/Contact';
 
 export default function Home() {
   return (
-    <div className="max-w-screen-xl mx-auto px-6 md:px-8 min-h-screen lg:grid lg:grid-cols-12 lg:gap-8">
+    <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 2xl:px-12 min-h-screen lg:grid lg:grid-cols-12 lg:gap-10">
       {/* HEADER (Left Side) */}
       <Header />
 

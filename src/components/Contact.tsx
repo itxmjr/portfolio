@@ -9,7 +9,6 @@ export default function Contact() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate submission
         setTimeout(() => {
             setIsSubmitting(false);
             alert("Message sent! I'll reply shortly.");
@@ -18,27 +17,26 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="mb-16 scroll-mt-24 md:mb-24 lg:mb-32 lg:scroll-mt-32" data-animate>
+        <section id="contact" className="mb-16 scroll-mt-24 md:mb-24 lg:mb-32 lg:scroll-mt-32 px-4 sm:px-6" data-animate>
             <div className="reveal transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                <div className="glass-panel p-6 md:p-8 border border-white/10 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
-                    <p className="text-[#00FF7F] text-xs font-bold uppercase tracking-widest mb-4">Let&apos;s Collaborate</p>
-                    <h2 className="text-3xl font-semibold text-white mb-4">Start a Conversation</h2>
-                    <p className="text-white/70 text-sm mb-8 leading-relaxed max-w-sm">
-                        Currently open to technical leadership roles, AI strategy consulting, and collaborative product development. Let&apos;s build the next generation of intelligence together.
+                <div className="p-5 sm:p-6 md:p-8 border border-white/[0.06] rounded-2xl bg-white/[0.02]">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">Let&apos;s Collaborate</h2>
+                    <p className="text-white/50 text-sm mb-8 leading-relaxed max-w-md">
+                        Currently open to technical leadership roles, AI strategy consulting, and collaborative product development.
                     </p>
                     <form id="contactForm" className="space-y-4" onSubmit={handleSubmit}>
-                        <div className="grid md:grid-cols-2 gap-4">
+                        <div className="grid sm:grid-cols-2 gap-3">
                             <input
                                 type="text"
                                 id="name"
-                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#00FF7F] focus:ring-1 focus:ring-[#00FF7F] transition-all duration-300"
+                                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#00FF7F]/40 focus:ring-1 focus:ring-[#00FF7F]/30 transition-all duration-300"
                                 placeholder="Name"
                                 required
                             />
                             <input
                                 type="email"
                                 id="email"
-                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#00FF7F] focus:ring-1 focus:ring-[#00FF7F] transition-all duration-300"
+                                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#00FF7F]/40 focus:ring-1 focus:ring-[#00FF7F]/30 transition-all duration-300"
                                 placeholder="Email"
                                 required
                             />
@@ -46,21 +44,21 @@ export default function Contact() {
                         <textarea
                             id="message"
                             rows={3}
-                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#00FF7F] focus:ring-1 focus:ring-[#00FF7F] transition-all duration-300"
-                            placeholder="Message..."
+                            className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#00FF7F]/40 focus:ring-1 focus:ring-[#00FF7F]/30 transition-all duration-300 resize-none"
+                            placeholder="Your message..."
                             required
                         ></textarea>
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full btn bg-[#00FF7F] text-black font-semibold py-3 rounded-xl hover:bg-[#2de3b8] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="w-full bg-[#00FF7F] text-black font-semibold py-3 rounded-xl hover:bg-[#2de3b8] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,255,127,0.2)] disabled:opacity-70 disabled:cursor-not-allowed text-sm"
                         >
                             {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>
                     </form>
                 </div>
-                <div className="mt-8 text-xs text-white/40">
-                    <p>Coded in Visual Studio Code. Built with Next.js, Tailwind CSS, & React.</p>
+                <div className="mt-6 text-center text-[11px] text-white/20">
+                    <p>Built with Next.js, Tailwind CSS & React</p>
                 </div>
             </div>
         </section>

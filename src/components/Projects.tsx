@@ -85,42 +85,42 @@ export default function Projects() {
     const data = projects[activeProject];
 
     return (
-        <section id="projects" className="py-12 px-4 sm:px-6 scroll-mt-24" data-animate>
-            <div className="w-full reveal transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                <div className="flex flex-col gap-3 mb-6">
-                    <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[0.8rem] text-[#96a2b6] tracking-wide uppercase">
-                        Case Studies
-                    </p>
-                    <h2 className="text-3xl font-semibold text-white">Strategic AI Implementations.</h2>
+        <section id="projects" className="py-16 px-4 sm:px-6 scroll-mt-24" data-animate>
+            <div className="reveal transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                {/* Section Header */}
+                <div className="mb-8">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Featured Projects</h2>
+                    <p className="text-white/50 text-sm sm:text-base max-w-xl">Strategic AI implementations showcasing end-to-end engineering.</p>
                 </div>
-                <div className="grid xl:grid-cols-5 gap-6 h-auto xl:h-[500px]">
+
+                <div className="grid lg:grid-cols-5 gap-4">
 
                     {/* Project List */}
-                    <div className="xl:col-span-2 flex flex-col h-full overflow-hidden">
-                        <div className="glass-panel flex-grow overflow-y-auto custom-scrollbar p-2 flex flex-col gap-2 border border-white/10 rounded-2xl shadow-2xl backdrop-blur-2xl bg-white/[0.02]">
+                    <div className="lg:col-span-2 flex flex-col">
+                        <div className="flex flex-col gap-2 lg:max-h-[480px] lg:overflow-y-auto custom-scrollbar lg:pr-1">
                             {Object.entries(projects).map(([key, p]) => (
                                 <div
                                     key={key}
                                     onClick={() => setActiveProject(key as ProjectKey)}
                                     className={clsx(
-                                        "cursor-pointer p-4 rounded-xl border transition-all duration-300 group shrink-0",
+                                        "cursor-pointer p-4 rounded-xl border transition-all duration-300 group",
                                         activeProject === key
-                                            ? "bg-white/10 border-[#00FF7F]/30 shadow-[0_0_20px_rgba(0,255,127,0.1)]"
-                                            : "border-transparent hover:bg-white/5 hover:border-white/10"
+                                            ? "bg-white/[0.06] border-[#00FF7F]/20 shadow-[0_0_20px_rgba(0,255,127,0.06)]"
+                                            : "border-white/[0.04] hover:bg-white/[0.03] hover:border-white/10"
                                     )}
                                 >
-                                    <div className="flex justify-between items-start mb-0.5">
-                                        <p className="text-[9px] text-[#00FF7F] uppercase tracking-widest font-bold">{p.industry}</p>
-                                        <span className="text-[9px] text-white/30 font-medium">{p.year}</span>
+                                    <div className="flex justify-between items-start mb-1">
+                                        <p className="text-[10px] text-[#00FF7F]/80 uppercase tracking-widest font-bold">{p.industry}</p>
+                                        <span className="text-[10px] text-white/20 font-medium">{p.year}</span>
                                     </div>
                                     <h3 className={clsx(
-                                        "text-base font-bold transition-colors duration-300",
-                                        activeProject === key ? "text-white" : "text-white/60 group-hover:text-white/90"
+                                        "text-sm font-bold transition-colors duration-300",
+                                        activeProject === key ? "text-white" : "text-white/50 group-hover:text-white/80"
                                     )}>
                                         {p.title}
                                     </h3>
-                                    <p className="text-white/40 text-[10px] mt-0.5 line-clamp-1">
-                                        {p.tech.join(' • ')}
+                                    <p className="text-white/30 text-[10px] mt-1 line-clamp-1">
+                                        {p.tech.join(' · ')}
                                     </p>
                                 </div>
                             ))}
@@ -128,65 +128,63 @@ export default function Projects() {
                     </div>
 
                     {/* Project Details */}
-                    <div className="xl:col-span-3 h-full">
-                        <div className="glass-panel border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-full backdrop-blur-3xl bg-white/[0.02]">
-                            {/* Project Image Container */}
-                            <div className="relative h-[180px] shrink-0 w-full overflow-hidden border-b border-white/10 group">
+                    <div className="lg:col-span-3">
+                        <div className="border border-white/[0.06] rounded-2xl overflow-hidden bg-white/[0.02] flex flex-col h-full">
+                            {/* Project Image */}
+                            <div className="relative h-[180px] shrink-0 w-full overflow-hidden border-b border-white/[0.06] group">
                                 <Image
                                     src={data.image}
                                     alt={data.title}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"></div>
-                                <div className="absolute bottom-3 left-5 right-5 flex justify-between items-end">
-                                    <div className="flex gap-2">
-                                        <a
-                                            href={data.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 rounded-lg text-[10px] font-semibold text-white transition-all hover:translate-y-[-1px]"
-                                        >
-                                            <Github size={12} />
-                                            GitHub
-                                        </a>
-                                        <a
-                                            href={data.live}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00FF7F]/20 hover:bg-[#00FF7F]/30 backdrop-blur-md border border-[#00FF7F]/30 rounded-lg text-[10px] font-semibold text-[#00FF7F] transition-all hover:translate-y-[-1px]"
-                                        >
-                                            <ExternalLink size={12} />
-                                            Live Demo
-                                        </a>
-                                    </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                                <div className="absolute bottom-3 left-4 right-4 flex gap-2">
+                                    <a
+                                        href={data.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 rounded-lg text-[10px] font-semibold text-white transition-all hover:-translate-y-0.5"
+                                    >
+                                        <Github size={12} />
+                                        Source
+                                    </a>
+                                    <a
+                                        href={data.live}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00FF7F]/15 hover:bg-[#00FF7F]/25 backdrop-blur-md border border-[#00FF7F]/20 rounded-lg text-[10px] font-semibold text-[#00FF7F] transition-all hover:-translate-y-0.5"
+                                    >
+                                        <ExternalLink size={12} />
+                                        Demo
+                                    </a>
                                 </div>
                             </div>
 
                             <div className="p-5 overflow-y-auto flex-grow space-y-4 custom-scrollbar">
                                 <div className="space-y-1">
-                                    <div className="flex items-center gap-2 text-[#00FF7F]">
-                                        <Code2 size={14} />
+                                    <div className="flex items-center gap-2 text-[#00FF7F]/70">
+                                        <Code2 size={13} />
                                         <span className="text-[9px] font-bold uppercase tracking-wider">{data.industry}</span>
                                     </div>
                                     <h3 className="text-xl font-bold text-white tracking-tight">{data.title}</h3>
                                 </div>
 
-                                <p className="text-white/60 text-xs leading-relaxed">
+                                <p className="text-white/50 text-xs leading-relaxed">
                                     {data.description}
                                 </p>
 
                                 <div className="flex flex-wrap gap-1.5">
                                     {data.tech.map(t => (
-                                        <span key={t} className="px-2 py-0.5 rounded-full text-[8px] font-bold bg-white/5 border border-white/10 text-white/70 uppercase tracking-widest">{t}</span>
+                                        <span key={t} className="px-2.5 py-0.5 rounded-full text-[9px] font-semibold bg-white/[0.04] border border-white/[0.08] text-white/60 uppercase tracking-wider">{t}</span>
                                     ))}
                                 </div>
 
-                                <div className="grid sm:grid-cols-2 gap-3 pt-4 border-t border-white/5">
+                                <div className="grid sm:grid-cols-2 gap-3 pt-4 border-t border-white/[0.04]">
                                     {data.outcomes.map((outcome, idx) => (
-                                        <div key={idx} className="p-3 rounded-lg bg-white/[0.03] border border-white/10 hover:border-[#00FF7F]/20 transition-colors">
-                                            <p className="text-[#00FF7F] text-[9px] font-bold mb-0.5 uppercase tracking-wider">{outcome.title}</p>
-                                            <p className="text-white/50 text-[10px] leading-relaxed">{outcome.desc}</p>
+                                        <div key={idx} className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-[#00FF7F]/15 transition-colors duration-300">
+                                            <p className="text-[#00FF7F]/80 text-[9px] font-bold mb-0.5 uppercase tracking-wider">{outcome.title}</p>
+                                            <p className="text-white/40 text-[10px] leading-relaxed">{outcome.desc}</p>
                                         </div>
                                     ))}
                                 </div>
