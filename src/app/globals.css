@@ -58,7 +58,7 @@ body {
   }
 }
 
-/* Utility classes matching the static site */
+/* Utility classes */
 .animate-trail {
   animation: trail 0.9s ease-out forwards;
 }
@@ -72,9 +72,9 @@ body {
 }
 
 .grid-bg {
-  background: linear-gradient(transparent 96%, rgba(255, 255, 255, 0.05) 100%),
-    linear-gradient(90deg, transparent 96%, rgba(255, 255, 255, 0.05) 100%);
-  background-size: 32px 32px;
+  background: linear-gradient(transparent 97%, rgba(255, 255, 255, 0.03) 100%),
+    linear-gradient(90deg, transparent 97%, rgba(255, 255, 255, 0.03) 100%);
+  background-size: 40px 40px;
 }
 
 .ambient-glow {
@@ -114,8 +114,33 @@ html {
   backdrop-filter: blur(40px);
 }
 
+/* Global Scrollbar - Neon Green */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 127, 0.25);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 127, 0.5);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 127, 0.25) transparent;
+}
+
+/* Custom scrollbar for specific containers */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -123,15 +148,15 @@ html {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 255, 127, 0.3);
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 127, 0.3);
+  background: rgba(0, 255, 127, 0.5);
 }
 
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  scrollbar-color: rgba(0, 255, 127, 0.3) transparent;
 }
