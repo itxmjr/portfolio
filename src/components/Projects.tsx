@@ -99,36 +99,83 @@ export default function Projects() {
                     <div className="lg:col-span-2 flex flex-col">
                         <div className="flex flex-col gap-2 lg:max-h-[480px] lg:overflow-y-auto custom-scrollbar lg:pr-1">
                             {Object.entries(projects).map(([key, p]) => (
-                                <div
-                                    key={key}
-                                    onClick={() => setActiveProject(key as ProjectKey)}
-                                    className={clsx(
-                                        "cursor-pointer p-4 rounded-xl border transition-all duration-300 group",
-                                        activeProject === key
-                                            ? "bg-white/[0.06] border-[#00FF7F]/20 shadow-[0_0_20px_rgba(0,255,127,0.06)]"
-                                            : "border-white/[0.04] hover:bg-white/[0.03] hover:border-white/10"
-                                    )}
-                                >
-                                    <div className="flex justify-between items-start mb-1">
-                                        <p className="text-[10px] text-[#00FF7F]/80 uppercase tracking-widest font-bold">{p.industry}</p>
-                                        <span className="text-[10px] text-white/20 font-medium">{p.year}</span>
+                                <React.Fragment key={key}>
+                                    <div
+                                        onClick={() => setActiveProject(key as ProjectKey)}
+                                        className={clsx(
+                                            "cursor-pointer p-4 rounded-xl border transition-all duration-300 group",
+                                            activeProject === key
+                                                ? "bg-white/[0.06] border-[#00FF7F]/20 shadow-[0_0_20px_rgba(0,255,127,0.06)]"
+                                                : "border-white/[0.04] hover:bg-white/[0.03] hover:border-white/10"
+                                        )}
+                                    >
+                                        <div className="flex justify-between items-start mb-1">
+                                            <p className="text-[10px] text-[#00FF7F]/80 uppercase tracking-widest font-bold">{p.industry}</p>
+                                            <span className="text-[10px] text-white/20 font-medium">{p.year}</span>
+                                        </div>
+                                        <h3 className={clsx(
+                                            "text-sm font-bold transition-colors duration-300",
+                                            activeProject === key ? "text-white" : "text-white/50 group-hover:text-white/80"
+                                        )}>
+                                            {p.title}
+                                        </h3>
+                                        <p className="text-white/30 text-[10px] mt-1 line-clamp-1">
+                                            {p.tech.join(' · ')}
+                                        </p>
                                     </div>
-                                    <h3 className={clsx(
-                                        "text-sm font-bold transition-colors duration-300",
-                                        activeProject === key ? "text-white" : "text-white/50 group-hover:text-white/80"
-                                    )}>
-                                        {p.title}
-                                    </h3>
-                                    <p className="text-white/30 text-[10px] mt-1 line-clamp-1">
-                                        {p.tech.join(' · ')}
-                                    </p>
-                                </div>
+
+                                    {/* Inline detail for mobile */}
+                                    {activeProject === key && (
+                                        <div className="lg:hidden border border-white/[0.06] rounded-xl overflow-hidden bg-white/[0.02] animate-in slide-in-from-top-2 duration-300">
+                                            <div className="relative h-[160px] w-full overflow-hidden border-b border-white/[0.06] group">
+                                                <Image
+                                                    src={p.image}
+                                                    alt={p.title}
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                                                <div className="absolute bottom-3 left-4 right-4 flex gap-2">
+                                                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 rounded-lg text-[10px] font-semibold text-white transition-all">
+                                                        <Github size={12} /> Source
+                                                    </a>
+                                                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00FF7F]/15 hover:bg-[#00FF7F]/25 backdrop-blur-md border border-[#00FF7F]/20 rounded-lg text-[10px] font-semibold text-[#00FF7F] transition-all">
+                                                        <ExternalLink size={12} /> Demo
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="p-4 space-y-3">
+                                                <div className="space-y-1">
+                                                    <div className="flex items-center gap-2 text-[#00FF7F]/70">
+                                                        <Code2 size={13} />
+                                                        <span className="text-[9px] font-bold uppercase tracking-wider">{p.industry}</span>
+                                                    </div>
+                                                    <h3 className="text-lg font-bold text-white tracking-tight">{p.title}</h3>
+                                                </div>
+                                                <p className="text-white/50 text-xs leading-relaxed">{p.description}</p>
+                                                <div className="flex flex-wrap gap-1.5">
+                                                    {p.tech.map(t => (
+                                                        <span key={t} className="px-2.5 py-0.5 rounded-full text-[9px] font-semibold bg-white/[0.04] border border-white/[0.08] text-white/60 uppercase tracking-wider">{t}</span>
+                                                    ))}
+                                                </div>
+                                                <div className="grid grid-cols-2 gap-2 pt-3 border-t border-white/[0.04]">
+                                                    {p.outcomes.map((outcome, idx) => (
+                                                        <div key={idx} className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                                                            <p className="text-[#00FF7F]/80 text-[9px] font-bold mb-0.5 uppercase tracking-wider">{outcome.title}</p>
+                                                            <p className="text-white/40 text-[10px] leading-relaxed">{outcome.desc}</p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </React.Fragment>
                             ))}
                         </div>
                     </div>
 
                     {/* Project Details */}
-                    <div className="lg:col-span-3">
+                    <div className="hidden lg:block lg:col-span-3">
                         <div className="border border-white/[0.06] rounded-2xl overflow-hidden bg-white/[0.02] flex flex-col h-full">
                             {/* Project Image */}
                             <div className="relative h-[180px] shrink-0 w-full overflow-hidden border-b border-white/[0.06] group">

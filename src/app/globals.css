@@ -160,3 +160,11 @@ html {
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 255, 127, 0.3) transparent;
 }
+
+/* Hidden scrollbar utility - keeps scroll functionality */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  scrollbar-width: none;
+}

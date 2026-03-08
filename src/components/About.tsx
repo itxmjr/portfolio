@@ -55,8 +55,10 @@ const commandResponses: Record<string, { output: React.ReactNode }> = {
                 <p className="text-[#00FF7F] font-bold">$ git log --oneline career</p>
                 <p className="text-amber-300/80">2024-Present <span className="text-white/60">AI Engineer & Founder @ AI by MJR</span></p>
                 <p className="text-white/40 text-[11px] ml-4">LLM systems, RAG pipelines, agentic workflows</p>
-                <p className="text-amber-300/80">2025-Present <span className="text-white/60">AI Intern @ CodeAlpha & DevelopersHub</span></p>
-                <p className="text-white/40 text-[11px] ml-4">Object detection, language translators, embeddings pipelines</p>
+                <p className="text-amber-300/80">2025-Present <span className="text-white/60">AI Intern @ CodeAlpha</span></p>
+                <p className="text-white/40 text-[11px] ml-4">Object detection, embeddings pipelines</p>
+                <p className="text-amber-300/80">2025-Present <span className="text-white/60">AI/ML Intern @ DevelopersHub</span></p>
+                <p className="text-white/40 text-[11px] ml-4">Language translators, ML models</p>
             </div>
         )
     },
@@ -84,7 +86,7 @@ const commandResponses: Record<string, { output: React.ReactNode }> = {
             <div className="space-y-1">
                 <p className="text-[#00FF7F] font-bold">$ cat education.txt</p>
                 <p className="text-white/70">🎓 BS Computer Science — University of Central Punjab</p>
-                <p className="text-white/50">   2023 — 2027 | CGPA: <span className="text-white font-semibold">3.77/4.0</span> | Dean&apos;s List</p>
+                <p className="text-white/50">   2023 — 2027 | CGPA: <span className="text-white font-semibold">3.82/4.0</span> | Top Performer</p>
                 <p className="text-white/40 text-[11px]">   Focus: Artificial Intelligence & Agentic Systems</p>
             </div>
         )
@@ -219,7 +221,7 @@ export default function About() {
                         />
                     </div>
                     <div className="flex-1 min-w-0">
-                        <h2 className="text-lg sm:text-xl font-bold text-white truncate">Crafting the Future of <span className="text-[#00FF7F]">Decision Intelligence.</span></h2>
+                        <h2 className="text-base sm:text-xl font-bold text-white">Crafting the Future of <span className="text-[#00FF7F]">Decision Intelligence.</span></h2>
                         <p className="text-white/30 text-[10px] sm:text-xs uppercase tracking-wider">Full-Stack Engineer & AI Architect · <span className="text-[#00FF7F]/60">Available for Work</span></p>
                     </div>
                 </div>
@@ -248,7 +250,7 @@ export default function About() {
                     {/* Terminal Body */}
                     <div
                         ref={scrollRef}
-                        className="p-4 font-mono text-xs h-[320px] sm:h-[360px] overflow-y-auto custom-scrollbar space-y-3"
+                        className="p-4 font-mono text-xs h-[240px] sm:h-[320px] md:h-[360px] overflow-y-auto custom-scrollbar space-y-3"
                     >
                         {/* Boot Sequence */}
                         {showBootSequence && (

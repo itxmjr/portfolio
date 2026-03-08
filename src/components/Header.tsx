@@ -78,7 +78,7 @@ export default function Header() {
     };
 
     return (
-        <header className="lg:col-span-5 lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-20 pt-16 pb-8 lg:overflow-y-auto">
+        <header className="lg:col-span-5 lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-20 pt-16 pb-8 lg:overflow-y-auto scrollbar-hidden">
             <div>
                 <h1 className="text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white mb-3">
                     M Jawad ur Rehman

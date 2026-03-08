@@ -7,8 +7,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono" });
 
 export const metadata: Metadata = {
-  title: "AI by MJR · Generative AI Portfolio",
-  description: "AI Solutions Architect Portfolio - M Jawad ur Rehman",
+  title: "M Jawad ur Rehman",
+  description: "AI Full Stack Engineer",
+  icons: {
+    icon: "/Image.png",
+  },
 };
 
 export default function RootLayout({

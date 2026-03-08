@@ -50,11 +50,11 @@ function StatCard({ target, label }: { target: number; label: string }) {
     const { count, elementRef } = useCounter(target);
 
     return (
-        <div ref={elementRef} className="relative group p-5 text-center rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-[#00FF7F]/20 transition-all duration-500">
+        <div ref={elementRef} className="relative group p-3 sm:p-5 text-center rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-[#00FF7F]/20 transition-all duration-500">
             <div className="font-mono font-bold text-[clamp(2rem,3.5vw,2.8rem)] text-[#00FF7F] leading-none mb-1">
                 {count}
             </div>
-            <p className="text-white/40 text-[10px] uppercase tracking-[0.15em] font-medium">{label}</p>
+            <p className="text-white/40 text-[9px] sm:text-[10px] uppercase tracking-[0.08em] sm:tracking-[0.15em] font-medium">{label}</p>
             {/* Subtle glow on hover */}
             <div className="absolute inset-0 rounded-2xl bg-[#00FF7F]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
@@ -72,9 +72,16 @@ const experiences = [
     {
         period: '2025 — Present',
         title: 'AI Intern',
-        company: 'CodeAlpha & DevelopersHub',
-        description: 'Developing real-time object detection, language translators, and LLM-based automation workflows. Working on embeddings pipelines and vector search optimization.',
+        company: 'CodeAlpha',
+        description: 'Developing real-time object detection and LLM-based automation workflows. Working on embeddings pipelines and vector search optimization.',
         tags: ['PyTorch', 'YOLO', 'Embeddings', 'FastAPI'],
+    },
+    {
+        period: '2025 — Present',
+        title: 'AI/ML Intern',
+        company: 'DevelopersHub',
+        description: 'Building language translators and machine learning models. Working on NLP pipelines and deep learning solutions.',
+        tags: ['PyTorch', 'NLP', 'Deep Learning', 'Transformers'],
     },
 ];
 

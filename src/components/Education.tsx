@@ -37,13 +37,13 @@ export default function Education() {
                     {/* Stats Row */}
                     <div className="flex items-center gap-6 pt-5 border-t border-white/[0.06]">
                         <div className="flex flex-col">
-                            <span className="text-white font-bold text-lg sm:text-xl">3.77 / 4.0</span>
+                            <span className="text-white font-bold text-lg sm:text-xl">3.82 / 4.0</span>
                             <span className="text-white/25 text-[9px] uppercase tracking-widest font-medium mt-0.5">Current CGPA</span>
                         </div>
                         <div className="w-px h-10 bg-white/[0.06]"></div>
                         <div className="flex flex-col">
-                            <span className="text-white font-bold text-lg sm:text-xl">Dean&apos;s List</span>
-                            <span className="text-white/25 text-[9px] uppercase tracking-widest font-medium mt-0.5">Academic Honor</span>
+                            <span className="text-white font-bold text-lg sm:text-xl">Top Performer</span>
+                            <span className="text-white/25 text-[9px] uppercase tracking-widest font-medium mt-0.5">Academic Standing</span>
                         </div>
                     </div>
                 </div>
