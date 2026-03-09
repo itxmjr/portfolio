@@ -95,8 +95,8 @@ const commandResponses: Record<string, { output: React.ReactNode }> = {
         output: (
             <div className="space-y-1">
                 <p className="text-[#00FF7F] font-bold">$ echo $CONTACT</p>
-                <p className="text-white/60">🔗 <a href="https://linkedin.com/in/aibymjr" target="_blank" rel="noopener noreferrer" className="text-sky-300/80 hover:text-[#00FF7F] transition-colors underline underline-offset-2">linkedin.com/in/aibymjr</a></p>
-                <p className="text-white/60">🐙 <a href="https://github.com/aibymjr" target="_blank" rel="noopener noreferrer" className="text-sky-300/80 hover:text-[#00FF7F] transition-colors underline underline-offset-2">github.com/aibymjr</a></p>
+                <p className="text-white/60">🔗 <a href="https://linkedin.com/in/itxmjr" target="_blank" rel="noopener noreferrer" className="text-sky-300/80 hover:text-[#00FF7F] transition-colors underline underline-offset-2">linkedin.com/in/itxmjr</a></p>
+                <p className="text-white/60">🐙 <a href="https://github.com/itxmjr" target="_blank" rel="noopener noreferrer" className="text-sky-300/80 hover:text-[#00FF7F] transition-colors underline underline-offset-2">github.com/itxmjr</a></p>
                 <p className="text-white/60">▶️ <a href="https://youtube.com/@aibymjr" target="_blank" rel="noopener noreferrer" className="text-sky-300/80 hover:text-[#00FF7F] transition-colors underline underline-offset-2">youtube.com/@aibymjr</a></p>
                 <p className="text-white/20 text-[10px] mt-1">Or scroll to the contact form below ↓</p>
             </div>
