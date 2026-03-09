@@ -1,25 +1,24 @@
 <div align="center">
 
-# AI Full Stack Engineer Portfolio
+# 🤖 AI Full Stack Engineer Portfolio
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel)
-
-### [mjawad.tech](https://mjawad.tech)
+[![Portfolio](https://img.shields.io/badge/mjawad.tech-Portfolio-16a34a?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mjawad.tech)
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)
 
 A modern, interactive portfolio showcasing AI & full stack engineering work — featuring a live terminal, radar skill charts, cursor particle effects, and more.
 
 <br />
 
-<img src="public/mock-project.png" alt="Portfolio Demo" width="720" />
+<img src="public/mock-project.png" alt="Portfolio Demo" width="480" />
 
 </div>
 
 <br />
 
-## Features
+## ✨ Features
 
 - **Interactive Terminal** — Simulated command-line interface with typing animation
 - **Radar Skill Charts** — Visual skill breakdown powered by Chart.js
@@ -28,7 +27,7 @@ A modern, interactive portfolio showcasing AI & full stack engineering work — 
 - **Typing Animation** — Smooth typewriter effect on hero text
 - **Fully Responsive** — Mobile-first design that works across all devices
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -39,7 +38,7 @@ A modern, interactive portfolio showcasing AI & full stack engineering work — 
 | Icons | Lucide React |
 | Deployment | Vercel |
 
-## Getting Started
+## 📦 Getting Started
 
 ```bash
 # Clone the repository
@@ -58,7 +57,7 @@ npm run build
 
 Open [http://localhost:3000](http://localhost:3000) to view it locally.
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 src/
@@ -79,13 +78,25 @@ src/
     └── Terminal.tsx
 ```
 
-## Deployment
+## 🚀 Deployment
 
 The site is deployed on **Vercel**.
 
-## Connect
+## 📜 License
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-mjawad.tech-00FF7F?style=flat-square&logo=googlechrome&logoColor=white)](https://mjawad.tech)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/itxmjr)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/itxmjr)
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@aibymjr)
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🌐 Connect
+
+<div align="center">
+
+[![Portfolio](https://img.shields.io/badge/mjawad.tech-Portfolio-16a34a?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mjawad.tech)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/itxmjr)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/itxmjr)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@aibymjr)
+
+<sub>Built with ❤️ by M Jawad ur Rehman using Next.js and TypeScript.</sub>
+
+</div>
