@@ -9,15 +9,15 @@ const commandResponses: Record<string, { output: React.ReactNode }> = {
         output: (
             <div className="space-y-1">
                 <p className="text-[#00FF7F] font-bold mb-2">Available Commands:</p>
-                <p><span className="text-[#00FF7F]">whoami</span>    <span className="text-white/30">—</span> <span className="text-white/50">Current user</span></p>
-                <p><span className="text-[#00FF7F]">pwd</span>       <span className="text-white/30">—</span> <span className="text-white/50">Working directory</span></p>
-                <p><span className="text-[#00FF7F]">ls</span>        <span className="text-white/30">—</span> <span className="text-white/50">List sections</span></p>
                 <p><span className="text-[#00FF7F]">about</span>     <span className="text-white/30">—</span> <span className="text-white/50">Who am I</span></p>
                 <p><span className="text-[#00FF7F]">skills</span>    <span className="text-white/30">—</span> <span className="text-white/50">Technical expertise</span></p>
                 <p><span className="text-[#00FF7F]">experience</span> <span className="text-white/30">—</span> <span className="text-white/50">Work history</span></p>
                 <p><span className="text-[#00FF7F]">projects</span>  <span className="text-white/30">—</span> <span className="text-white/50">Featured projects</span></p>
                 <p><span className="text-[#00FF7F]">education</span> <span className="text-white/30">—</span> <span className="text-white/50">Academic background</span></p>
                 <p><span className="text-[#00FF7F]">contact</span>   <span className="text-white/30">—</span> <span className="text-white/50">Get in touch</span></p>
+                <p><span className="text-[#00FF7F]">ls</span>        <span className="text-white/30">—</span> <span className="text-white/50">List sections</span></p>
+                <p><span className="text-[#00FF7F]">pwd</span>       <span className="text-white/30">—</span> <span className="text-white/50">Working directory</span></p>
+                <p><span className="text-[#00FF7F]">whoami</span>    <span className="text-white/30">—</span> <span className="text-white/50">Current user</span></p>
                 <p><span className="text-[#00FF7F]">clear</span>     <span className="text-white/30">—</span> <span className="text-white/50">Clear terminal</span></p>
                 <p className="text-white/20 mt-2 text-[10px]">Tip: Click on any section in the nav to scroll there directly.</p>
             </div>
