@@ -24,11 +24,11 @@ const projects = {
         industry: 'Audio AI',
         title: 'Music Generator',
         year: '2025',
-        description: 'A powerful AI-based music composition tool featuring a robust FastAPI backend and a modern Next.js frontend. This project uses LSTM neural networks to create unique musical pieces and offers a sleek, mood-based generation UI.',
-        tech: ['FastAPI', 'PyTorch', 'Next.js', 'LSTM'],
-        github: 'https://github.com/itxmjr',
-        live: '#',
-        image: '/mock-project.png',
+        description: 'An AI-powered music composition app with a FastAPI backend and Next.js frontend. Leverages LSTM neural networks to learn musical patterns and generate original compositions as downloadable MIDI files, with an intuitive mood-based generation interface.',
+        tech: ['FastAPI', 'PyTorch', 'Next.js', 'Tone.js'],
+        github: 'https://github.com/itxmjr/Music-Generator',
+        live: 'https://mymusicgen.vercel.app',
+        image: '/mymusicgen.png',
         outcomes: [
             { title: 'Mood-Based Composition', desc: 'Select from moods like Energetic, Melancholic, or Cyberpunk.' },
             { title: 'MIDI Export', desc: 'Instantly download creations as standard MIDI files.' }
@@ -38,11 +38,11 @@ const projects = {
         industry: 'Natural Language Processing',
         title: 'Language Translator',
         year: '2025',
-        description: 'A real-time translation application built with Python (FastAPI) and Next.js. Supports over 30 global languages and features integrated Text-to-Speech (TTS) capabilities.',
+        description: 'A full-stack translation app built with FastAPI and Next.js. Supports 30+ languages with real-time Google Translate API integration and Text-to-Speech playback via gTTS. Containerized with Docker and deployed on Hugging Face Spaces.',
         tech: ['FastAPI', 'Next.js', 'gTTS', 'Docker'],
-        github: 'https://github.com/itxmjr',
-        live: '#',
-        image: '/mock-project.png',
+        github: 'https://github.com/itxmjr/Language-Translator',
+        live: 'https://itxmjr-language-translator.hf.space/',
+        image: '/language-translator.png',
         outcomes: [
             { title: '30+ Languages Supported', desc: 'Seamless translation between global languages.' },
             { title: 'Integrated TTS', desc: 'Listen to translations with a single click.' }
@@ -52,11 +52,11 @@ const projects = {
         industry: 'Artificial Intelligence',
         title: 'Knowledge Assistant',
         year: '2025',
-        description: 'A smart, lightweight knowledge assistant backend using TF-IDF and Cosine Similarity to accurately match user queries against a predefined knowledge base.',
+        description: 'An intelligent FAQ chatbot powered by Natural Language Understanding. Uses tokenization, n-gram analysis, TF-IDF vectorization, and cosine similarity to accurately match user queries against a customizable JSON knowledge base via a RESTful API.',
         tech: ['Python', 'FastAPI', 'Scikit-Learn', 'NLTK'],
-        github: 'https://github.com/itxmjr',
-        live: '#',
-        image: '/mock-project.png',
+        github: 'https://github.com/itxmjr/Knowledge-Assistant',
+        live: 'https://itxmjr-knowledge-assistant.hf.space/',
+        image: '/knowledge-assistant.png',
         outcomes: [
             { title: 'High Accuracy Matching', desc: 'Powered by TF-IDF vectorization and cosine similarity.' },
             { title: 'RESTful Endpoints', desc: 'Optimized for modern frontend integrations.' }
