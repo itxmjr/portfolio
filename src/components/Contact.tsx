@@ -55,7 +55,21 @@ export default function Contact() {
                         >
                             {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>
+                        <a
+                            href="https://cal.com/mjawad/30min"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full text-center border border-[#00FF7F]/40 text-[#00FF7F] font-semibold py-3 rounded-xl hover:bg-[#00FF7F]/10 transition-all duration-300 text-sm"
+                        >
+                            Book a Call
+                        </a>
                     </form>
+                    <p className="mt-4 text-xs text-white/30">
+                        Also available on:{' '}
+                        <a href="https://fiverr.com/aibymjr" target="_blank" rel="noopener noreferrer" className="hover:text-[#00FF7F] transition-colors duration-300">Fiverr</a>
+                        {' | '}
+                        <a href="https://upwork.com/aibymjr" target="_blank" rel="noopener noreferrer" className="hover:text-[#00FF7F] transition-colors duration-300">Upwork</a>
+                    </p>
                 </div>
                 <div className="mt-6 text-center text-[11px] text-white/20">
                     <p>Built with Next.js, Tailwind CSS & React</p>
