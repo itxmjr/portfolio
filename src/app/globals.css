@@ -114,26 +114,31 @@ html {
   backdrop-filter: blur(40px);
 }
 
-/* Global Scrollbar - Neon Green */
-*::-webkit-scrollbar {
+/* Global Scrollbar - Neon Green (scoped to html/body only to avoid center column leak) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
   width: 6px;
 }
 
-*::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
   background: transparent;
 }
 
-*::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
   background: rgba(0, 255, 127, 0.25);
   border-radius: 10px;
 }
 
-*::-webkit-scrollbar-thumb:hover {
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 255, 127, 0.5);
 }
 
-/* Firefox scrollbar */
-* {
+/* Firefox scrollbar - scoped to html/body only */
+html,
+body {
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 255, 127, 0.25) transparent;
 }

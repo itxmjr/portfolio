@@ -9,6 +9,9 @@ const commandResponses: Record<string, { output: React.ReactNode }> = {
         output: (
             <div className="space-y-1">
                 <p className="text-[#00FF7F] font-bold mb-2">Available Commands:</p>
+                <p><span className="text-[#00FF7F]">whoami</span>    <span className="text-white/30">—</span> <span className="text-white/50">Current user</span></p>
+                <p><span className="text-[#00FF7F]">pwd</span>       <span className="text-white/30">—</span> <span className="text-white/50">Working directory</span></p>
+                <p><span className="text-[#00FF7F]">ls</span>        <span className="text-white/30">—</span> <span className="text-white/50">List sections</span></p>
                 <p><span className="text-[#00FF7F]">about</span>     <span className="text-white/30">—</span> <span className="text-white/50">Who am I</span></p>
                 <p><span className="text-[#00FF7F]">skills</span>    <span className="text-white/30">—</span> <span className="text-white/50">Technical expertise</span></p>
                 <p><span className="text-[#00FF7F]">experience</span> <span className="text-white/30">—</span> <span className="text-white/50">Work history</span></p>
@@ -99,6 +102,25 @@ const commandResponses: Record<string, { output: React.ReactNode }> = {
                 <p className="text-white/60">🐙 <a href="https://github.com/itxmjr" target="_blank" rel="noopener noreferrer" className="text-sky-300/80 hover:text-[#00FF7F] transition-colors underline underline-offset-2">github.com/itxmjr</a></p>
                 <p className="text-white/60">▶️ <a href="https://youtube.com/@aibymjr" target="_blank" rel="noopener noreferrer" className="text-sky-300/80 hover:text-[#00FF7F] transition-colors underline underline-offset-2">youtube.com/@aibymjr</a></p>
                 <p className="text-white/20 text-[10px] mt-1">Or scroll to the contact form below ↓</p>
+            </div>
+        )
+    },
+    whoami: {
+        output: (
+            <p className="text-white/70">mjr — <span className="text-white font-semibold">M Jawad ur Rehman</span>, AI Engineer &amp; Founder @ AI by MJR</p>
+        )
+    },
+    pwd: {
+        output: (
+            <p className="text-white/70">/home/mjr/portfolio</p>
+        )
+    },
+    ls: {
+        output: (
+            <div className="grid grid-cols-2 gap-x-4 gap-y-0.5">
+                {['about/', 'experience/', 'projects/', 'skills/', 'education/', 'testimonials/', 'contact/'].map(d => (
+                    <p key={d} className="text-sky-300/80">{d}</p>
+                ))}
             </div>
         )
     },
@@ -199,7 +221,7 @@ export default function About() {
             }
         } else if (e.key === 'Tab') {
             e.preventDefault();
-            const commands = Object.keys(commandResponses).concat(['clear']);
+            const commands = Object.keys(commandResponses).concat(['clear']).sort();
             const match = commands.find(c => c.startsWith(input.toLowerCase()));
             if (match) setInput(match);
         }
