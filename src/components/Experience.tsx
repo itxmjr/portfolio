@@ -63,6 +63,13 @@ function StatCard({ target, label }: { target: number; label: string }) {
 
 const experiences = [
     {
+        period: '2026 — Present',
+        title: 'Associate Software Engineer',
+        company: 'MacroCoderz',
+        description: 'Working on Complete End to End AI and Software Engineering Solutions for various clients. Ranging from Web Applications to AI Agents.',
+        tags: ['AI Full Stack', 'RAG', 'LLMs', 'Agents'],
+    },
+    {
         period: '2024 — Present',
         title: 'AI Engineer & Founder',
         company: 'AI by MJR',

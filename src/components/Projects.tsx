@@ -12,9 +12,9 @@ const projects = {
         year: '2025',
         description: 'A deep dive into the architecture of Large Language Models. Built a transformer-based LLM from the ground up, implementing multi-head attention, positional encoding, and layer normalization. Focused on understanding the mathematical foundations of modern generative AI.',
         tech: ['Python', 'PyTorch', 'NumPy', 'CUDA'],
-        github: 'https://github.com/itxmjr',
+        github: 'https://github.com/itxmjr/LLM-From-Scratch',
         live: '#',
-        image: '/mock-project.png',
+        image: '/llm-from-scratch.png',
         outcomes: [
             { title: 'Transformer Architecture', desc: 'Custom implementation of self-attention mechanisms.' },
             { title: 'Efficiency Optimized', desc: 'Leveraged CUDA for hardware-accelerated training.' }
@@ -22,7 +22,7 @@ const projects = {
     },
     musicGen: {
         industry: 'Audio AI',
-        title: 'Music Generator',
+        title: 'AI Music Generator',
         year: '2025',
         description: 'An AI-powered music composition app with a FastAPI backend and Next.js frontend. Leverages LSTM neural networks to learn musical patterns and generate original compositions as downloadable MIDI files, with an intuitive mood-based generation interface.',
         tech: ['FastAPI', 'PyTorch', 'Next.js', 'Tone.js'],
@@ -32,20 +32,6 @@ const projects = {
         outcomes: [
             { title: 'Mood-Based Composition', desc: 'Select from moods like Energetic, Melancholic, or Cyberpunk.' },
             { title: 'MIDI Export', desc: 'Instantly download creations as standard MIDI files.' }
-        ]
-    },
-    translator: {
-        industry: 'Natural Language Processing',
-        title: 'Language Translator',
-        year: '2025',
-        description: 'A full-stack translation app built with FastAPI and Next.js. Supports 30+ languages with real-time Google Translate API integration and Text-to-Speech playback via gTTS. Containerized with Docker and deployed on Hugging Face Spaces.',
-        tech: ['FastAPI', 'Next.js', 'gTTS', 'Docker'],
-        github: 'https://github.com/itxmjr/Language-Translator',
-        live: 'https://itxmjr-language-translator.hf.space/',
-        image: '/language-translator.png',
-        outcomes: [
-            { title: '30+ Languages Supported', desc: 'Seamless translation between global languages.' },
-            { title: 'Integrated TTS', desc: 'Listen to translations with a single click.' }
         ]
     },
     chatbot: {
@@ -62,18 +48,46 @@ const projects = {
             { title: 'RESTful Endpoints', desc: 'Optimized for modern frontend integrations.' }
         ]
     },
+    translator: {
+        industry: 'Natural Language Processing',
+        title: 'Language Translator',
+        year: '2025',
+        description: 'A full-stack translation app built with FastAPI and Next.js. Supports 30+ languages with real-time Google Translate API integration and Text-to-Speech playback via gTTS. Containerized with Docker and deployed on Hugging Face Spaces.',
+        tech: ['FastAPI', 'Next.js', 'gTTS', 'Docker'],
+        github: 'https://github.com/itxmjr/Language-Translator',
+        live: 'https://itxmjr-language-translator.hf.space/',
+        image: '/language-translator.png',
+        outcomes: [
+            { title: '30+ Languages Supported', desc: 'Seamless translation between global languages.' },
+            { title: 'Integrated TTS', desc: 'Listen to translations with a single click.' }
+        ]
+    },
     stockForecast: {
         industry: 'Financial Technology',
         title: 'Stock Price Forecast',
         year: '2024',
         description: 'A robust machine learning application designed to predict the next day\'s closing stock price using Random Forest and Linear Regression models.',
         tech: ['Python', 'Scikit-Learn', 'Pandas', 'yfinance'],
-        github: 'https://github.com/itxmjr',
+        github: 'https://github.com/itxmjr/Stock-Price-Forecast',
         live: '#',
-        image: '/mock-project.png',
+        image: '/stock-price-forecast.png',
         outcomes: [
             { title: 'Automated Data Pipeline', desc: 'Seamlessly downloads historical stock data.' },
             { title: '96% Accuracy (LR)', desc: 'Achieved high R² scores on historical market data.' }
+        ]
+    },
+    dataAnalysis: {
+        industry: 'Data Analysis',
+        title: 'Exploratory Data Analysis',
+        year: '2024',
+        description: 'A comprehensive data analysis project that explores and visualizes various datasets to extract meaningful insights. The project covers data cleaning, preprocessing, exploratory data analysis, and visualization.',
+        tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
+        github: 'https://github.com/itxmjr/Exploratory-Data-Analysis',
+        live: '#',
+        image: '/exploratory-data-analysis.png',
+        outcomes: [
+            { title: 'Data Cleaning', desc: 'Cleaned and preprocessed raw data to ensure data quality.' },
+            { title: 'Data Visualization', desc: 'Visualized data to extract meaningful insights.' }
         ]
     }
 };
