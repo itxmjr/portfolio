@@ -96,7 +96,15 @@ type ProjectKey = keyof typeof projects;
 
 export default function Projects() {
     const [activeProject, setActiveProject] = useState<ProjectKey>('llmFromScratch');
+    const [isImageLoading, setIsImageLoading] = useState(true);
     const data = projects[activeProject];
+
+    const handleProjectChange = (key: ProjectKey) => {
+        if (key !== activeProject) {
+            setIsImageLoading(true);
+            setActiveProject(key);
+        }
+    };
 
     return (
         <section id="projects" className="py-16 px-4 sm:px-6 scroll-mt-24" data-animate>
@@ -111,11 +119,11 @@ export default function Projects() {
 
                     {/* Project List */}
                     <div className="lg:col-span-2 flex flex-col">
-                        <div className="flex flex-col gap-2 lg:max-h-[480px] lg:overflow-y-auto custom-scrollbar lg:pr-1">
+                        <div className="flex flex-col gap-2 lg:max-h-[480px] lg:overflow-y-auto custom-scrollbar lg:pr-2 lg:pb-6">
                             {Object.entries(projects).map(([key, p]) => (
                                 <React.Fragment key={key}>
                                     <div
-                                        onClick={() => setActiveProject(key as ProjectKey)}
+                                        onClick={() => handleProjectChange(key as ProjectKey)}
                                         className={clsx(
                                             "cursor-pointer p-4 rounded-xl border transition-all duration-300 group",
                                             activeProject === key
@@ -142,20 +150,28 @@ export default function Projects() {
                                     {activeProject === key && (
                                         <div className="lg:hidden border border-white/[0.06] rounded-xl overflow-hidden bg-white/[0.02] animate-in slide-in-from-top-2 duration-300">
                                             <div className="relative h-[160px] w-full overflow-hidden border-b border-white/[0.06] group">
+                                                {isImageLoading && <div className="absolute inset-0 shimmer z-10" />}
                                                 <Image
                                                     src={p.image}
                                                     alt={p.title}
                                                     fill
-                                                    className="object-cover"
+                                                    priority
+                                                    className={clsx(
+                                                        "object-cover transition-opacity duration-300",
+                                                        isImageLoading ? "opacity-0" : "opacity-100"
+                                                    )}
+                                                    onLoad={() => setIsImageLoading(false)}
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                                                 <div className="absolute bottom-3 left-4 right-4 flex gap-2">
                                                     <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 rounded-lg text-[10px] font-semibold text-white transition-all">
                                                         <Github size={12} /> Source
                                                     </a>
-                                                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00FF7F]/15 hover:bg-[#00FF7F]/25 backdrop-blur-md border border-[#00FF7F]/20 rounded-lg text-[10px] font-semibold text-[#00FF7F] transition-all">
-                                                        <ExternalLink size={12} /> Demo
-                                                    </a>
+                                                    {p.live && p.live !== '#' && (
+                                                        <a href={p.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00FF7F]/15 hover:bg-[#00FF7F]/25 backdrop-blur-md border border-[#00FF7F]/20 rounded-lg text-[10px] font-semibold text-[#00FF7F] transition-all">
+                                                            <ExternalLink size={12} /> Demo
+                                                        </a>
+                                                    )}
                                                 </div>
                                             </div>
                                             <div className="p-4 space-y-3">
@@ -193,11 +209,18 @@ export default function Projects() {
                         <div className="border border-white/[0.06] rounded-2xl overflow-hidden bg-white/[0.02] flex flex-col h-full">
                             {/* Project Image */}
                             <div className="relative h-[180px] shrink-0 w-full overflow-hidden border-b border-white/[0.06] group">
+                                {isImageLoading && <div className="absolute inset-0 shimmer z-10" />}
                                 <Image
                                     src={data.image}
                                     alt={data.title}
                                     fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    priority
+                                    quality={100}
+                                    className={clsx(
+                                        "object-cover transition-all duration-700 group-hover:scale-105",
+                                        isImageLoading ? "opacity-0" : "opacity-100"
+                                    )}
+                                    onLoad={() => setIsImageLoading(false)}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                                 <div className="absolute bottom-3 left-4 right-4 flex gap-2">
@@ -210,15 +233,17 @@ export default function Projects() {
                                         <Github size={12} />
                                         Source
                                     </a>
-                                    <a
-                                        href={data.live}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00FF7F]/15 hover:bg-[#00FF7F]/25 backdrop-blur-md border border-[#00FF7F]/20 rounded-lg text-[10px] font-semibold text-[#00FF7F] transition-all hover:-translate-y-0.5"
-                                    >
-                                        <ExternalLink size={12} />
-                                        Demo
-                                    </a>
+                                    {data.live && data.live !== '#' && (
+                                        <a
+                                            href={data.live}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00FF7F]/15 hover:bg-[#00FF7F]/25 backdrop-blur-md border border-[#00FF7F]/20 rounded-lg text-[10px] font-semibold text-[#00FF7F] transition-all hover:-translate-y-0.5"
+                                        >
+                                            <ExternalLink size={12} />
+                                            Demo
+                                        </a>
+                                    )}
                                 </div>
                             </div>
 
