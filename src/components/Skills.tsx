@@ -159,14 +159,15 @@ export default function Skills() {
 
     const chartOptions = {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         scales: {
             r: {
                 angleLines: { color: 'rgba(255, 255, 255, 0.06)' },
                 grid: { color: 'rgba(255, 255, 255, 0.06)' },
                 pointLabels: {
                     color: 'rgba(255, 255, 255, 0.6)',
-                    font: { family: 'Inter', size: 11, weight: '600' as const }
+                    font: { family: 'Inter', size: 10, weight: '600' as const },
+                    padding: 8
                 },
                 ticks: { display: false },
                 suggestedMin: 0,
@@ -224,7 +225,7 @@ export default function Skills() {
                 <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 sm:p-6 space-y-6">
                     {/* Radar Chart - centered on top */}
                     <div className="flex items-center justify-center">
-                        <div className="w-full max-w-[280px] sm:max-w-[320px]">
+                        <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-square">
                             <Radar
                                 ref={chartRef}
                                 data={skillData}
